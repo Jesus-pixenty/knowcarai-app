@@ -23,7 +23,7 @@ workflows:
       - name: Instalar dependencias de CocoaPods
         script: |
           cd ios/App && pod install
-      - name: Configurar la firma autom·tica (certificados de Apple)
+      - name: Configurar la firma autom√°tica (certificados de Apple)
         script: |
           xcode-project use-profiles
       - name: Compilar el .ipa
@@ -42,6 +42,7 @@ workflows:
         - knowcar_keystore
       vars:
         PACKAGE_NAME: "com.knowcarai.app"
+      java: 21
       node: latest
     scripts:
       - name: Install npm dependencies
