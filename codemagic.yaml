@@ -52,6 +52,6 @@ workflows:
           npx cap sync android
       - name: Compilar el Android App Bundle
         script: |
-          cd android && ./gradlew bundleRelease
+          cd android; chmod +x gradlew; ./gradlew bundleRelease
     artifacts:
       - android/app/build/outputs/**/*.aab
