@@ -1,4 +1,4 @@
-﻿workflows:
+workflows:
   ios-workflow:
     name: iOS Workflow
     max_build_duration: 60
@@ -23,7 +23,7 @@
       - name: Instalar dependencias de CocoaPods
         script: |
           cd ios/App && pod install
-      - name: Configurar la firma automática (certificados de Apple)
+      - name: Configurar la firma autom�tica (certificados de Apple)
         script: |
           xcode-project use-profiles
       - name: Compilar el .ipa
@@ -36,7 +36,7 @@
   android-workflow:
     name: Android Workflow
     max_build_duration: 60
-    instance_type: linux_x2
+    instance_type: linux
     environment:
       android_signing:
         - knowcar_keystore
