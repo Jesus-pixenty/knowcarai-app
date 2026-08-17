@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 android {
-    namespace = "com.knowcarai.app"
+    namespace = "com.knowcarai"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.knowcarai.app"
+        applicationId "com.knowcarai"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
