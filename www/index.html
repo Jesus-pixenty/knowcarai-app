@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Knowcar AI.</title>
 <meta name="description" content="La app del motor en español: identifica coches con IA, chatea sobre coches, descubre quedadas y talleres cerca de ti, y comparte tu pasión por el motor con la comunidad.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://knowcarai.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://knowcarai.com">
 <meta property="og:title" content="Knowcar AI — La app del motor en español">
@@ -823,6 +825,44 @@
   .streak-pill b{font-size:13.5px;}
 
   .rewards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+
+  .marketplace-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;max-height:60vh;overflow-y:auto;}
+  .listing-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;}
+  .listing-card img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--bg-soft);}
+  .listing-card .lc-body{padding:10px;}
+  .listing-card .lc-title{font-size:12.5px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .listing-card .lc-price{font-size:13.5px;font-weight:800;color:var(--accent-2);margin-top:3px;}
+  .listing-card .lc-status{font-size:10px;color:var(--text-faint);margin-top:2px;}
+  .listing-cat-btn.active, .listing-cond-btn.active{background:var(--accent);color:#fff;}
+
+  .social-tabs{display:flex;gap:8px;margin-bottom:16px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .social-tab-btn{flex:1;padding:9px 12px;border-radius:12px;background:var(--card);border:1px solid var(--border);color:var(--text-faint);font-size:13px;font-weight:700;}
+  .social-tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+  .chat-messages-list{flex:1;overflow-y:auto;max-height:50vh;min-height:200px;display:flex;flex-direction:column;gap:10px;padding:6px 2px;}
+  .chat-msg{max-width:78%;padding:8px 12px;border-radius:14px;font-size:13.5px;line-height:1.4;}
+  .chat-msg img{max-width:100%;border-radius:10px;margin-top:4px;display:block;}
+  .chat-msg.mine{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:4px;}
+  .chat-msg.theirs{align-self:flex-start;background:var(--card);border:1px solid var(--border);border-bottom-left-radius:4px;}
+  .chat-msg .chat-msg-time{display:block;font-size:9.5px;opacity:.7;margin-top:3px;}
+  .chat-input-row{display:flex;gap:8px;align-items:center;margin-top:10px;}
+  .chat-input-row input[type="text"]{flex:1;padding:10px 12px;border-radius:999px;background:var(--bg-soft);border:1px solid var(--border);color:var(--text);font-size:13px;}
+  .chat-attach-btn{width:38px;height:38px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);cursor:pointer;flex-shrink:0;}
+  .chat-attach-btn:hover{color:var(--accent-2);}
+  #chatImagePreview img{max-height:70px;border-radius:8px;}
+
+  .offer-block{margin-top:6px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.1);}
+  .offer-block b{display:block;font-size:13.5px;}
+  .offer-status{display:inline-block;font-size:10.5px;font-weight:700;margin-top:2px;}
+  .offer-status.offer-pendiente{color:#ffc400;}
+  .offer-status.offer-aceptada{color:#34c759;}
+  .offer-status.offer-rechazada{color:#ff453a;}
+
+  .conversation-item{padding-right:36px;}
+  .unread-dot{position:absolute;left:8px;top:50%;transform:translateY(-50%);width:9px;height:9px;border-radius:50%;background:#0a84ff;}
+  .new-tag{display:inline-block;font-size:9px;font-weight:800;color:#0a84ff;background:rgba(10,132,255,0.15);padding:1px 6px;border-radius:999px;margin-left:4px;vertical-align:middle;}
+  .conversation-hide-btn{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;color:var(--text-faint);font-size:12px;}
+  .conversation-hide-btn:hover{color:var(--danger);background:var(--bg-soft);}
   .reward-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;}
   .reward-icon{font-size:34px;line-height:1;}
   .reward-card .reward-label{font-size:13.5px;font-weight:700;color:var(--text);}
@@ -939,9 +979,10 @@
   .comments-list{max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;margin-bottom:14px;}
   .comments-empty{text-align:center;padding:30px 10px;color:var(--text-faint);font-size:13.5px;}
   .comment-item{font-size:13.5px;line-height:1.5;color:#e6e6ea;display:flex;align-items:flex-start;gap:6px;flex-wrap:wrap;}
-  .comment-own-actions{display:inline-flex;gap:4px;margin-left:auto;flex-shrink:0;}
-  .comment-own-actions button{font-size:12px;color:var(--text-faint);padding:2px 4px;}
-  .comment-own-actions button:hover{color:var(--accent-2);}
+  .comment-own-actions{display:flex;gap:10px;width:100%;margin-top:2px;}
+  .comment-own-actions button{font-size:11.5px;font-weight:700;color:var(--accent-2);padding:2px 0;}
+  .comment-own-actions button:hover{text-decoration:underline;}
+  .comment-own-actions button:last-child{color:var(--danger);}
 
   .user-search-wrap{
     position:relative;max-width:520px;margin:0 auto 14px;
@@ -1143,7 +1184,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="plan-price">0€<span>/mes</span></div>
           <ul class="plan-list">
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>15 consultas IA al día</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>3 escaneos de coche al día</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>5 escaneos de coche al día</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Acceso a la comunidad</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Mapa y eventos básicos</li>
           </ul>
@@ -1155,7 +1196,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="plan-price">2,99€<span>/mes</span></div>
           <ul class="plan-list">
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>150 consultas IA al día</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>10 escaneos de coche al día</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>30 escaneos de coche al día</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Comparador avanzado</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Alertas de eventos cercanos</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Participa en concursos de Knowcar AI</li>
@@ -1304,6 +1345,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="qicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18M7 14l4-5 3 3 5-7"/></svg></div>
                 <span>Comparador</span>
               </button>
+              <button class="quick-card" onclick="openMarketplace()">
+                <div class="qicon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2l1.5 5h9L18 2M4 7h16l-1.5 12a2 2 0 01-2 2H7.5a2 2 0 01-2-2L4 7zM9 11v4M15 11v4"/></svg></div>
+                <span>Mercadillo</span>
+              </button>
             </div>
 
             <div class="row-head"><h3>Coches destacados · segunda mano</h3><a href="https://www.coches.net" target="_blank" rel="noopener noreferrer">Ver más en coches.net</a></div>
@@ -1415,29 +1460,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <button class="topbar-home-btn" onclick="backToLanding()" aria-label="Volver al inicio">Knowcar AI</button>
             <h1>Social</h1>
             <div class="topbar-actions">
-              <button class="icon-btn" aria-label="Mensajes"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M21 15a4 4 0 01-4 4H8l-5 3V6a4 4 0 014-4h10a4 4 0 014 4v9z"/></svg></button>
+              <button class="icon-btn" aria-label="Mensajes" onclick="openMessagesInbox()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M21 15a4 4 0 01-4 4H8l-5 3V6a4 4 0 014-4h10a4 4 0 014 4v9z"/></svg></button>
             </div>
           </div>
           <div class="page-pad" style="padding-top:20px;">
             <div class="user-search-wrap">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-              <input type="text" id="userSearchInput" placeholder="Buscar por @usuario..." oninput="searchUsers(this.value)">
+              <input type="text" id="userSearchInput" placeholder="Buscar personas o publicaciones..." oninput="searchUsers(this.value)">
             </div>
             <div id="userSearchResults" style="display:none;margin-bottom:20px;"></div>
-            <div class="pull-refresh-indicator" id="pullRefreshIndicator">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 3v6h-6"/></svg>
-              <span>Actualizando…</span>
+
+            <div class="social-tabs">
+              <button class="social-tab-btn active" id="socialTabFeedBtn" onclick="switchSocialTab('feed')">Publicaciones</button>
+              <button class="social-tab-btn" id="socialTabMarketBtn" onclick="switchSocialTab('mercadillo')">🛒 Mercadillo</button>
             </div>
-            <div class="ad-slot" id="adSlotSocial" style="max-width:520px;margin-left:auto;margin-right:auto;">
-              <span class="ad-placeholder-label">Espacio publicitario</span>
-              <!-- Cuando actives AdSense en el head, sustituye esto por tu bloque <ins class="adsbygoogle">... -->
+
+            <div id="socialFeedTab">
+              <div class="pull-refresh-indicator" id="pullRefreshIndicator">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 3v6h-6"/></svg>
+                <span>Actualizando…</span>
+              </div>
+              <div class="ad-slot" id="adSlotSocial" style="max-width:520px;margin-left:auto;margin-right:auto;">
+                <span class="ad-placeholder-label">Espacio publicitario</span>
+                <!-- Cuando actives AdSense en el head, sustituye esto por tu bloque <ins class="adsbygoogle">... -->
+              </div>
+              <div id="socialEmptyState" style="text-align:center;padding:60px 20px;color:var(--text-faint);">
+                <div style="font-size:15px;font-weight:700;color:var(--text-dim);margin-bottom:6px;">Aún no hay publicaciones</div>
+                <div style="font-size:13.5px;">Sé el primero en compartir tu coche o tu última salida.</div>
+              </div>
             </div>
-            <div id="socialEmptyState" style="text-align:center;padding:60px 20px;color:var(--text-faint);">
-              <div style="font-size:15px;font-weight:700;color:var(--text-dim);margin-bottom:6px;">Aún no hay publicaciones</div>
-              <div style="font-size:13.5px;">Sé el primero en compartir tu coche o tu última salida.</div>
+
+            <div id="socialMarketplaceTab" style="display:none;">
+              <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+                <button class="btn btn-primary btn-sm" id="mkFilterAll" onclick="filterMarketplace('todo')">Todo</button>
+                <button class="btn btn-secondary btn-sm" id="mkFilterPieza" onclick="filterMarketplace('pieza')">Piezas</button>
+                <button class="btn btn-secondary btn-sm" id="mkFilterCoche" onclick="filterMarketplace('coche_completo')">Coches</button>
+                <button class="btn btn-secondary btn-sm" style="margin-left:auto;" onclick="openCreateListing()">+ Publicar</button>
+              </div>
+              <div class="marketplace-grid" id="marketplaceGridInline" style="max-height:none;"></div>
             </div>
           </div>
-          <button class="fab" aria-label="Publicar" onclick="openPublishModal()">
+          <button class="fab" aria-label="Publicar" id="socialFab" onclick="openPublishModal()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
           </button>
         </section>
@@ -1895,6 +1958,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span>Valorar Knowcar AI</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
+        <button class="settings-item" onclick="connectSellerAccount()">
+          <span>Activar cobros para vender en el Mercadillo</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="settings-item" onclick="closeSettings(); openMyOrders();">
+          <span>Mis pedidos del Mercadillo</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
         <button class="settings-item danger" onclick="logout()">
           <span>Cerrar sesión</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
@@ -1989,6 +2060,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="comments-empty">Cargando…</div>
       </div>
 
+      <div class="field-label">Devoluciones escaladas a soporte (Mercadillo)</div>
+      <div id="adminReturnsList" style="max-height:260px;overflow-y:auto;margin-bottom:20px;">
+        <div class="comments-empty">Cargando…</div>
+      </div>
+
       <div class="field-label">Enviar correo a quien haya dado consentimiento de marketing</div>
       <input class="field-input" id="adminEmailSubject" placeholder="Asunto del correo" style="margin-bottom:10px;">
       <textarea class="field-textarea" id="adminEmailBody" placeholder="Contenido del correo (se admite HTML sencillo, como <b>, <a href=...>, <br>)" style="min-height:120px;"></textarea>
@@ -2070,6 +2146,113 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Plans modal (accesible desde dentro de la app) -->
   <!-- Tienda de recompensas -->
+  <!-- Mercadillo: navegar -->
+  <!-- Mercadillo: publicar artículo -->
+  <div class="modal-overlay" id="createListingOverlay">
+    <div class="modal">
+      <div class="modal-head">
+        <h3>Publicar artículo</h3>
+        <button class="modal-close" onclick="closeCreateListing()">✕</button>
+      </div>
+      <div class="field-label">Tipo</div>
+      <div style="display:flex;gap:8px;margin-bottom:14px;">
+        <button class="btn btn-secondary btn-sm listing-cat-btn active" data-cat="pieza" onclick="selectListingCategory('pieza')">Pieza/accesorio</button>
+        <button class="btn btn-secondary btn-sm listing-cat-btn" data-cat="coche_completo" onclick="selectListingCategory('coche_completo')">Coche completo</button>
+      </div>
+      <div id="listingKmField" style="display:none;">
+        <div class="field-label">Kilómetros</div>
+        <input type="number" class="field-input" id="listingKm" placeholder="Ej. 120000" style="margin-bottom:14px;">
+      </div>
+      <div class="field-label">Estado</div>
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+        <button class="btn btn-secondary btn-sm listing-cond-btn" data-cond="nuevo" onclick="selectListingCondition('nuevo')">Nuevo</button>
+        <button class="btn btn-secondary btn-sm listing-cond-btn" data-cond="casi_nuevo" onclick="selectListingCondition('casi_nuevo')">Casi nuevo</button>
+        <button class="btn btn-secondary btn-sm listing-cond-btn active" data-cond="usado" onclick="selectListingCondition('usado')">Usado</button>
+        <button class="btn btn-secondary btn-sm listing-cond-btn" data-cond="muy_usado" onclick="selectListingCondition('muy_usado')">Muy usado</button>
+      </div>
+      <div class="field-label">Foto</div>
+      <input type="file" accept="image/*" id="listingImageInput" style="margin-bottom:14px;">
+      <div class="field-label">Título</div>
+      <input class="field-input" id="listingTitle" placeholder="Ej. Llantas 18'' BBS, Ford Focus 2018..." style="margin-bottom:14px;">
+      <div class="field-label">Descripción</div>
+      <textarea class="field-textarea" id="listingDescription" placeholder="Estado, detalles, motivo de venta..." style="margin-bottom:14px;"></textarea>
+      <div class="field-label">Precio (€)</div>
+      <input type="number" class="field-input" id="listingPrice" placeholder="0" style="margin-bottom:14px;">
+      <div class="field-label">Coste de envío (€)</div>
+      <input type="number" class="field-input" id="listingShipping" placeholder="0 (deja en blanco si es en mano)" style="margin-bottom:6px;">
+      <p style="font-size:11.5px;color:var(--text-faint);margin-bottom:14px;">Se descuenta automáticamente un 1% de comisión (solo sobre el precio, no sobre el envío) al vender. El comprador paga el envío de vuelta si devuelve el artículo.</p>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-block" onclick="submitListing()">Publicar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mercadillo: detalle de artículo -->
+  <div class="modal-overlay" id="listingDetailOverlay">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="listingDetailTitle">Artículo</h3>
+        <button class="modal-close" onclick="closeListingDetail()">✕</button>
+      </div>
+      <img id="listingDetailImage" src="" alt="" style="width:100%;border-radius:14px;margin-bottom:14px;display:none;">
+      <p id="listingDetailDescription" style="font-size:13.5px;color:var(--text-dim);margin-bottom:10px;"></p>
+      <div style="font-size:22px;font-weight:800;color:var(--accent-2);margin-bottom:4px;" id="listingDetailPrice"></div>
+      <div style="font-size:12px;color:var(--text-faint);margin-bottom:16px;" id="listingDetailSeller"></div>
+      <button class="btn btn-primary btn-block" id="listingBuyBtn" onclick="buyListing()">Comprar</button>
+      <p style="font-size:10.5px;color:var(--text-faint);margin-top:4px;text-align:center;">Tu dinero queda protegido: no se le entrega al vendedor hasta pasados 14 días desde la compra.</p>
+      <button class="btn btn-secondary btn-block" id="listingContactBtn" style="margin-top:8px;" onclick="openListingChat()">💬 Contactar con el vendedor</button>
+      <button class="btn btn-secondary btn-block" id="listingSoldBtn" style="display:none;margin-top:8px;" onclick="markListingSold()">Vendido / Eliminar</button>
+    </div>
+  </div>
+
+  <!-- Mis pedidos del Mercadillo -->
+  <div class="modal-overlay" id="myOrdersOverlay">
+    <div class="modal" style="max-width:560px;">
+      <div class="modal-head">
+        <h3>Mis pedidos</h3>
+        <button class="modal-close" onclick="closeMyOrders()">✕</button>
+      </div>
+      <div class="social-tabs">
+        <button class="social-tab-btn active" id="ordersTabBuyBtn" onclick="switchOrdersTab('compras')">Compras</button>
+        <button class="social-tab-btn" id="ordersTabSellBtn" onclick="switchOrdersTab('ventas')">Ventas</button>
+      </div>
+      <div id="myOrdersList"></div>
+    </div>
+  </div>
+
+  <!-- Bandeja de mensajes -->
+  <div class="modal-overlay" id="messagesInboxOverlay">
+    <div class="modal">
+      <div class="modal-head">
+        <h3>Mensajes</h3>
+        <button class="modal-close" onclick="closeMessagesInbox()">✕</button>
+      </div>
+      <div id="messagesInboxList"></div>
+    </div>
+  </div>
+
+  <!-- Mercadillo: chat con el vendedor/comprador -->
+  <div class="modal-overlay" id="listingChatOverlay">
+    <div class="modal" style="max-width:480px;display:flex;flex-direction:column;">
+      <div class="modal-head">
+        <h3 id="listingChatTitle">Chat</h3>
+        <button class="modal-close" onclick="closeListingChat()">✕</button>
+      </div>
+      <div id="listingChatMessages" class="chat-messages-list"></div>
+      <button class="btn btn-secondary btn-sm btn-block" id="chatMakeOfferBtn" onclick="makeOffer()" style="margin-top:8px;">💰 Hacer una oferta</button>
+      <div class="chat-input-row">
+        <label class="chat-attach-btn" for="listingChatImageInput">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        </label>
+        <input type="file" accept="image/*" id="listingChatImageInput" style="display:none;" onchange="previewChatImage()">
+        <input type="text" id="listingChatInput" placeholder="Escribe un mensaje..." onkeydown="if(event.key==='Enter') sendListingMessage();">
+        <button class="btn btn-primary btn-sm" onclick="sendListingMessage()">Enviar</button>
+      </div>
+      <div id="chatImagePreview" style="display:none;padding:8px 0;"></div>
+      <p style="font-size:10.5px;color:var(--text-faint);margin-top:6px;">Los mensajes no se pueden editar ni borrar una vez enviados.</p>
+    </div>
+  </div>
+
   <!-- Lista de seguidores/siguiendo -->
   <div class="modal-overlay" id="followListOverlay">
     <div class="modal">
@@ -2131,7 +2314,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="plan-price">0€<span>/mes</span></div>
           <ul class="plan-list">
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>15 consultas IA al día</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>3 escaneos de coche al día</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>5 escaneos de coche al día</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Acceso a la comunidad</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Mapa y eventos básicos</li>
           </ul>
@@ -2142,7 +2325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="plan-price">2,99€<span>/mes</span></div>
           <ul class="plan-list">
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>150 consultas IA al día</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>10 escaneos de coche al día</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>30 escaneos de coche al día</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Comparador avanzado</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Alertas de eventos cercanos</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Participa en concursos de Knowcar AI</li>
@@ -2629,6 +2812,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   async function handleAvatarUpload(evt){
     const file = evt.target.files[0];
     if(!file) return;
+    const validationError = validateImageFile(file);
+    if(validationError){ showToast(validationError, { check:false }); evt.target.value = ''; return; }
     const reader = new FileReader();
     reader.onload = async () => {
       const dataUrl = reader.result;
@@ -2837,6 +3022,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderPointsDisplay();
       renderStreakDisplay();
       loadOwnFollowCounts(userId);
+      initRevenueCatIfNative();
 
       // Solo una vez por sesión (no cada vez que se recarga el perfil).
       if(!streakUpdatedThisSession){
@@ -2950,6 +3136,700 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   // ---------- Lista de seguidores / siguiendo ----------
+  // ---------- Mercadillo ----------
+  let marketplaceListings = [];
+  let marketplaceFilter = 'todo';
+  const CONDITION_LABELS = { nuevo: 'Nuevo', casi_nuevo: 'Casi nuevo', usado: 'Usado', muy_usado: 'Muy usado' };
+  let selectedListingCategory = 'pieza';
+  let currentListingDetail = null;
+  let listingImageDataUrl = null;
+
+  // Interruptor temporal: pon esto en "true" cuando quieras volver a
+  // activar el Mercadillo — todo el código sigue aquí intacto, esto solo
+  // esconde la pestaña y muestra un aviso de "Próximamente" en su lugar.
+  const MARKETPLACE_ENABLED = false;
+
+  // Home → "Mercadillo" lleva a Social y activa la pestaña directamente.
+  async function openMarketplace(){
+    switchView('social');
+    switchSocialTab('mercadillo');
+  }
+
+  function switchSocialTab(tab){
+    const feedTab = document.getElementById('socialFeedTab');
+    const marketTab = document.getElementById('socialMarketplaceTab');
+    const feedBtn = document.getElementById('socialTabFeedBtn');
+    const marketBtn = document.getElementById('socialTabMarketBtn');
+    const fab = document.getElementById('socialFab');
+    if(tab === 'mercadillo'){
+      feedTab.style.display = 'none';
+      marketTab.style.display = 'block';
+      feedBtn.classList.remove('active');
+      marketBtn.classList.add('active');
+      if(!MARKETPLACE_ENABLED){
+        fab.style.display = 'none';
+        marketTab.innerHTML = `
+          <div style="text-align:center;padding:70px 20px;color:var(--text-faint);">
+            <div style="font-size:38px;margin-bottom:10px;">🛠️</div>
+            <div style="font-size:16px;font-weight:800;color:var(--text-dim);margin-bottom:6px;">Mercadillo — Próximamente</div>
+            <div style="font-size:13.5px;">Estamos terminando de pulir esta sección. ¡Vuelve pronto!</div>
+          </div>`;
+        return;
+      }
+      fab.style.display = 'flex';
+      fab.onclick = openCreateListing;
+      loadMarketplaceListings();
+    } else {
+      feedTab.style.display = 'block';
+      marketTab.style.display = 'none';
+      feedBtn.classList.add('active');
+      marketBtn.classList.remove('active');
+      fab.style.display = 'flex';
+      fab.onclick = openPublishModal;
+    }
+  }
+
+  async function loadMarketplaceListings(){
+    const { data, error } = await sb.from('marketplace_listings')
+      .select('*, profiles!marketplace_listings_seller_id_fkey(handle)')
+      .eq('status', 'disponible')
+      .order('created_at', { ascending:false });
+    if(error){
+      console.error('[Knowcar AI] Error cargando el mercadillo:', error.message);
+      document.getElementById('marketplaceGridInline').innerHTML = '<div class="comments-empty">No se pudo cargar el mercadillo (' + escapeHtml(error.message) + ').</div>';
+      return;
+    }
+    marketplaceListings = data || [];
+    renderMarketplaceGrid();
+  }
+
+  function filterMarketplace(cat){
+    marketplaceFilter = cat;
+    document.querySelectorAll('#mkFilterAll, #mkFilterPieza, #mkFilterCoche').forEach(b => { b.classList.remove('btn-primary'); b.classList.add('btn-secondary'); });
+    const activeBtn = cat === 'todo' ? 'mkFilterAll' : cat === 'pieza' ? 'mkFilterPieza' : 'mkFilterCoche';
+    document.getElementById(activeBtn).classList.remove('btn-secondary');
+    document.getElementById(activeBtn).classList.add('btn-primary');
+    renderMarketplaceGrid();
+  }
+
+  function renderMarketplaceGrid(){
+    const grid = document.getElementById('marketplaceGridInline');
+    const items = marketplaceFilter === 'todo' ? marketplaceListings : marketplaceListings.filter(l => l.category === marketplaceFilter);
+    if(items.length === 0){
+      grid.innerHTML = '<div class="comments-empty">Todavía no hay nada publicado aquí. ¡Publica tú el primero!</div>';
+      return;
+    }
+    grid.innerHTML = items.map(l => `
+      <button class="listing-card" onclick="openListingDetail(${l.id})">
+        ${l.image_data ? `<img src="${escapeHtml(l.image_data)}" alt="">` : `<div style="aspect-ratio:1;background:var(--bg-soft);"></div>`}
+        <div class="lc-body">
+          <div class="lc-title">${escapeHtml(l.title)}</div>
+          <div class="lc-price">${(l.price_cents/100).toLocaleString('es-ES')} €${l.shipping_cents > 0 ? ' <span style="font-weight:400;color:var(--text-faint);font-size:10.5px;">+ ' + (l.shipping_cents/100).toLocaleString('es-ES') + '€ envío</span>' : ' <span style="font-weight:400;color:var(--text-faint);font-size:10.5px;">envío gratis</span>'}</div>
+          <div class="lc-status">${escapeHtml(l.category === 'pieza' ? 'Pieza' : 'Coche completo')}${l.condition ? ' · ' + escapeHtml(CONDITION_LABELS[l.condition] || l.condition) : ''}${l.km != null ? ' · ' + l.km.toLocaleString('es-ES') + ' km' : ''} · @${escapeHtml((l.profiles && l.profiles.handle) || '?')}</div>
+        </div>
+      </button>
+    `).join('');
+  }
+
+  function openCreateListing(){
+    if(!currentSession){ showToast('Necesitas iniciar sesión', { check:false }); return; }
+    document.getElementById('listingTitle').value = '';
+    document.getElementById('listingDescription').value = '';
+    document.getElementById('listingPrice').value = '';
+    document.getElementById('listingShipping').value = '';
+    document.getElementById('listingKm').value = '';
+    document.getElementById('listingImageInput').value = '';
+    listingImageDataUrl = null;
+    selectListingCategory('pieza');
+    selectListingCondition('usado');
+    document.getElementById('createListingOverlay').classList.add('show');
+  }
+  function closeCreateListing(){
+    document.getElementById('createListingOverlay').classList.remove('show');
+  }
+  function selectListingCategory(cat){
+    selectedListingCategory = cat;
+    document.querySelectorAll('.listing-cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+    document.getElementById('listingKmField').style.display = cat === 'coche_completo' ? 'block' : 'none';
+  }
+  let selectedListingCondition = 'usado';
+  function selectListingCondition(cond){
+    selectedListingCondition = cond;
+    document.querySelectorAll('.listing-cond-btn').forEach(b => b.classList.toggle('active', b.dataset.cond === cond));
+  }
+
+  async function submitListing(){
+    const title = document.getElementById('listingTitle').value.trim();
+    const description = document.getElementById('listingDescription').value.trim();
+    const priceEuros = parseFloat(document.getElementById('listingPrice').value);
+    const shippingEuros = parseFloat(document.getElementById('listingShipping').value) || 0;
+    const kmValue = selectedListingCategory === 'coche_completo' ? parseInt(document.getElementById('listingKm').value, 10) : null;
+    const fileInput = document.getElementById('listingImageInput');
+
+    if(!title || isNaN(priceEuros) || priceEuros <= 0){
+      showToast('Rellena al menos el título y un precio válido', { check:false });
+      return;
+    }
+
+    if(fileInput.files && fileInput.files[0]){
+      const validationError = validateImageFile(fileInput.files[0]);
+      if(validationError){ showToast(validationError, { check:false }); return; }
+      const reader = new FileReader();
+      const dataUrl = await new Promise((resolve) => {
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(fileInput.files[0]);
+      });
+      listingImageDataUrl = await resizeImageDataUrl(dataUrl, 800);
+    }
+
+    const { error } = await sb.from('marketplace_listings').insert({
+      seller_id: currentSession.user.id,
+      category: selectedListingCategory,
+      condition: selectedListingCondition,
+      title,
+      description: description || null,
+      price_cents: Math.round(priceEuros * 100),
+      shipping_cents: Math.round(shippingEuros * 100),
+      km: (kmValue != null && !isNaN(kmValue)) ? kmValue : null,
+      image_data: listingImageDataUrl
+    });
+    if(error){
+      showToast('No se pudo publicar: ' + error.message, { check:false, duration:4000 });
+      return;
+    }
+    showToast('¡Publicado!');
+    closeCreateListing();
+  }
+
+  async function openListingDetail(listingId){
+    const listing = marketplaceListings.find(l => l.id === listingId);
+    if(!listing) return;
+    currentListingDetail = listing;
+    document.getElementById('listingDetailTitle').textContent = listing.title;
+    const img = document.getElementById('listingDetailImage');
+    if(listing.image_data){ img.src = listing.image_data; img.style.display = 'block'; }
+    else { img.style.display = 'none'; }
+    document.getElementById('listingDetailDescription').textContent = listing.description || 'Sin descripción.';
+    const hasAgreedPrice = currentSession && listing.agreed_buyer_id === currentSession.user.id && listing.agreed_price_cents;
+    document.getElementById('listingDetailPrice').textContent = hasAgreedPrice
+      ? '✓ Precio pactado: ' + (listing.agreed_price_cents/100).toLocaleString('es-ES') + ' €' + (listing.shipping_cents > 0 ? ' + ' + (listing.shipping_cents/100).toLocaleString('es-ES') + '€ envío' : ' (envío gratis)')
+      : (listing.price_cents/100).toLocaleString('es-ES') + ' €' + (listing.shipping_cents > 0 ? ' + ' + (listing.shipping_cents/100).toLocaleString('es-ES') + '€ envío' : ' (envío gratis)');
+    document.getElementById('listingDetailSeller').textContent =
+      'Vendedor: @' + ((listing.profiles && listing.profiles.handle) || '?') +
+      (listing.condition ? ' · ' + (CONDITION_LABELS[listing.condition] || listing.condition) : '') +
+      (listing.km != null ? ' · ' + listing.km.toLocaleString('es-ES') + ' km' : '');
+
+    const isOwn = currentSession && listing.seller_id === currentSession.user.id;
+    document.getElementById('listingBuyBtn').style.display = isOwn ? 'none' : 'block';
+    document.getElementById('listingContactBtn').style.display = isOwn ? 'none' : 'block';
+    document.getElementById('listingSoldBtn').style.display = isOwn ? 'block' : 'none';
+
+    document.getElementById('listingDetailOverlay').classList.add('show');
+  }
+  function closeListingDetail(){
+    document.getElementById('listingDetailOverlay').classList.remove('show');
+  }
+
+  async function deleteListing(){
+    if(!currentListingDetail || !confirm('¿Eliminar esta publicación?')) return;
+    const { error } = await sb.from('marketplace_listings').update({ status: 'eliminado' }).eq('id', currentListingDetail.id);
+    if(error){
+      showToast('No se pudo eliminar: ' + error.message, { check:false, duration:4500 });
+      return;
+    }
+    showToast('Publicación eliminada');
+    closeListingDetail();
+    loadMarketplaceListings();
+  }
+
+  async function markListingSold(){
+    if(!currentListingDetail || !confirm('¿Marcar como vendido y quitarlo del Mercadillo? Ya no se podrá comprar ni contactar sobre él.')) return;
+    const { error } = await sb.from('marketplace_listings').update({ status: 'vendido' }).eq('id', currentListingDetail.id);
+    if(error){
+      showToast('No se pudo marcar como vendido: ' + error.message, { check:false, duration:4500 });
+      return;
+    }
+    showToast('Marcado como vendido');
+    closeListingDetail();
+    loadMarketplaceListings();
+  }
+
+  // ---------- Chat comprador/vendedor del Mercadillo ----------
+  let chatOtherUserId = null;
+  let chatListingId = null;
+  let chatImageDataUrl = null;
+  let chatPollInterval = null;
+
+  function openListingChat(){
+    if(!currentSession){ showToast('Necesitas iniciar sesión', { check:false }); return; }
+    if(!currentListingDetail) return;
+    if(currentListingDetail.seller_id === currentSession.user.id){
+      showToast('Es tu propio artículo', { check:false });
+      return;
+    }
+    openListingChatWith(currentListingDetail.id, currentListingDetail.seller_id, currentListingDetail.title);
+    sendListingSummaryIfFirstMessage(currentListingDetail);
+  }
+
+  // La primera vez que alguien abre el chat de un artículo, se manda solo
+  // un resumen (precio, estado, km si es coche...) para que la conversación
+  // quede con el contexto guardado desde el principio, sin que el comprador
+  // tenga que escribirlo a mano.
+  async function sendListingSummaryIfFirstMessage(listing){
+    const { count, error: countError } = await sb.from('marketplace_messages')
+      .select('id', { count:'exact', head:true })
+      .eq('listing_id', listing.id)
+      .eq('sender_id', currentSession.user.id)
+      .eq('recipient_id', listing.seller_id);
+    if(countError){
+      console.error('[Knowcar AI] Error comprobando mensajes previos:', countError.message);
+      showToast('No se pudo enviar el resumen: ' + countError.message, { check:false, duration:4500 });
+      return;
+    }
+    if(count && count > 0) return; // ya se mandó antes, no repetir
+
+    const parts = [
+      '📋 ' + listing.title,
+      (listing.price_cents/100).toLocaleString('es-ES') + ' €' + (listing.shipping_cents > 0 ? ' + ' + (listing.shipping_cents/100).toLocaleString('es-ES') + '€ envío' : ' (envío gratis)'),
+      CONDITION_LABELS[listing.condition] || listing.condition,
+      listing.category === 'coche_completo' ? 'Coche completo' : 'Pieza/accesorio'
+    ];
+    if(listing.km != null) parts.push(listing.km.toLocaleString('es-ES') + ' km');
+
+    const { error: insertError } = await sb.from('marketplace_messages').insert({
+      listing_id: listing.id,
+      sender_id: currentSession.user.id,
+      recipient_id: listing.seller_id,
+      content: parts.join(' · '),
+      image_data: listing.image_data || null
+    });
+    if(insertError){
+      console.error('[Knowcar AI] Error enviando el resumen del anuncio:', insertError.message);
+      showToast('No se pudo enviar el resumen: ' + insertError.message, { check:false, duration:4500 });
+      return;
+    }
+    loadListingChatMessages();
+  }
+
+  async function openListingChatWith(listingId, otherUserId, listingTitle){
+    if(!currentSession) return;
+    chatOtherUserId = otherUserId;
+    chatListingId = parseInt(listingId, 10);
+    document.getElementById('listingChatTitle').textContent = 'Chat · ' + (listingTitle || 'Mercadillo');
+    document.getElementById('listingChatInput').value = '';
+    chatImageDataUrl = null;
+    document.getElementById('chatImagePreview').style.display = 'none';
+    closeMessagesInbox();
+    document.getElementById('listingChatOverlay').classList.add('show');
+    loadListingChatMessages();
+    if(chatPollInterval) clearInterval(chatPollInterval);
+    chatPollInterval = setInterval(loadListingChatMessages, 4000);
+
+    // Solo el comprador puede hacer ofertas, no el vendedor sobre su propio artículo.
+    const { data: listingRow } = await sb.from('marketplace_listings').select('seller_id').eq('id', chatListingId).single();
+    const offerBtn = document.getElementById('chatMakeOfferBtn');
+    if(offerBtn) offerBtn.style.display = (listingRow && listingRow.seller_id === currentSession.user.id) ? 'none' : 'block';
+  }
+
+  // ---------- Bandeja de mensajes (todas las conversaciones) ----------
+  // Los mensajes en sí nunca se pueden borrar (a propósito), pero sí puedes
+  // "ocultar" una conversación entera de tu bandeja si ya no te interesa
+  // verla — se guarda solo en este dispositivo, no borra nada de verdad.
+  function getHiddenConversations(){
+    try{ return JSON.parse(localStorage.getItem('knowcar_hidden_conversations') || '[]'); }
+    catch(e){ return []; }
+  }
+  function hideConversation(key){
+    const hidden = getHiddenConversations();
+    if(!hidden.includes(key)){
+      hidden.push(key);
+      localStorage.setItem('knowcar_hidden_conversations', JSON.stringify(hidden));
+    }
+    openMessagesInbox();
+  }
+
+  async function openMessagesInbox(){
+    if(!currentSession){ showToast('Necesitas iniciar sesión', { check:false }); return; }
+    document.getElementById('messagesInboxOverlay').classList.add('show');
+    const list = document.getElementById('messagesInboxList');
+    list.innerHTML = '<div class="comments-empty">Cargando…</div>';
+
+    const myId = currentSession.user.id;
+    const { data, error } = await sb.from('marketplace_messages')
+      .select('*, listing:marketplace_listings(title), sender:profiles!marketplace_messages_sender_id_fkey(handle), recipient:profiles!marketplace_messages_recipient_id_fkey(handle)')
+      .or(`sender_id.eq.${myId},recipient_id.eq.${myId}`)
+      .order('created_at', { ascending:false });
+
+    if(error || !data || data.length === 0){
+      list.innerHTML = '<div class="comments-empty">Todavía no tienes ninguna conversación.</div>';
+      return;
+    }
+
+    // Nos quedamos solo con el mensaje más reciente de cada conversación
+    // (misma pareja de personas + mismo artículo).
+    const seen = new Set();
+    const conversations = [];
+    for(const m of data){
+      const otherId = m.sender_id === myId ? m.recipient_id : m.sender_id;
+      const key = m.listing_id + '|' + otherId;
+      if(seen.has(key)) continue;
+      seen.add(key);
+      const otherHandle = m.sender_id === myId ? (m.recipient && m.recipient.handle) : (m.sender && m.sender.handle);
+      conversations.push({
+        key,
+        listingId: m.listing_id,
+        listingTitle: (m.listing && m.listing.title) || 'Artículo',
+        otherId,
+        otherHandle: otherHandle || '?',
+        preview: m.content || (m.image_data ? '📷 Foto' : ''),
+        time: m.created_at,
+        lastSenderIsOther: m.sender_id !== myId
+      });
+    }
+
+    const hidden = getHiddenConversations();
+    const visible = conversations.filter(c => !hidden.includes(c.key));
+    if(visible.length === 0){
+      list.innerHTML = '<div class="comments-empty">Todavía no tienes ninguna conversación.</div>';
+      return;
+    }
+
+    list.innerHTML = visible.map(c => `
+      <div class="scan-history-item conversation-item" style="cursor:pointer;position:relative;" data-listing-id="${c.listingId}" data-other-id="${escapeHtml(c.otherId)}" data-listing-title="${escapeHtml(c.listingTitle)}" onclick="openListingChatWith(this.dataset.listingId, this.dataset.otherId, this.dataset.listingTitle)">
+        ${c.lastSenderIsOther ? '<span class="unread-dot" title="Nuevo mensaje"></span>' : ''}
+        <div>
+          <div class="scan-history-model">@${escapeHtml(c.otherHandle)} · ${escapeHtml(c.listingTitle)} ${c.lastSenderIsOther ? '<span class="new-tag">NUEVO</span>' : ''}</div>
+          <div class="scan-history-meta">${escapeHtml(c.preview)}</div>
+          <div class="scan-history-meta">${new Date(c.time).toLocaleString('es-ES', { hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit' })}</div>
+        </div>
+        <button class="conversation-hide-btn" onclick="event.stopPropagation(); hideConversation('${escapeHtml(c.key)}')" aria-label="Ocultar conversación">✕</button>
+      </div>
+    `).join('');
+  }
+  function closeMessagesInbox(){ document.getElementById('messagesInboxOverlay').classList.remove('show'); }
+
+  // ---------- Mis pedidos (compras/ventas) y devoluciones ----------
+  let ordersCurrentTab = 'compras';
+  const RETURN_WINDOW_DAYS = 14; // plazo legal en España
+
+  function openMyOrders(){
+    if(!currentSession){ showToast('Necesitas iniciar sesión', { check:false }); return; }
+    document.getElementById('myOrdersOverlay').classList.add('show');
+    switchOrdersTab('compras');
+  }
+  function closeMyOrders(){ document.getElementById('myOrdersOverlay').classList.remove('show'); }
+
+  function switchOrdersTab(tab){
+    ordersCurrentTab = tab;
+    document.getElementById('ordersTabBuyBtn').classList.toggle('active', tab === 'compras');
+    document.getElementById('ordersTabSellBtn').classList.toggle('active', tab === 'ventas');
+    loadMyOrders();
+  }
+
+  async function loadMyOrders(){
+    const list = document.getElementById('myOrdersList');
+    list.innerHTML = '<div class="comments-empty">Cargando…</div>';
+    const myId = currentSession.user.id;
+    const column = ordersCurrentTab === 'compras' ? 'buyer_id' : 'seller_id';
+    const { data, error } = await sb.from('marketplace_orders')
+      .select('*, marketplace_listings(title, image_data)')
+      .eq(column, myId)
+      .order('created_at', { ascending:false });
+
+    if(error || !data || data.length === 0){
+      list.innerHTML = '<div class="comments-empty">' + (ordersCurrentTab === 'compras' ? 'Todavía no has comprado nada.' : 'Todavía no has vendido nada.') + '</div>';
+      return;
+    }
+
+    list.innerHTML = data.map(o => {
+      const title = (o.marketplace_listings && o.marketplace_listings.title) || 'Artículo';
+      const daysSince = (Date.now() - new Date(o.created_at).getTime()) / 86400000;
+      const withinWindow = daysSince <= RETURN_WINDOW_DAYS;
+      let actionHtml = '';
+
+      if(ordersCurrentTab === 'compras'){
+        if(o.status === 'pagado' && o.return_status === 'ninguna' && withinWindow){
+          actionHtml = `<button class="btn btn-secondary btn-sm" onclick="requestReturn(${o.id})">Solicitar devolución</button>`;
+        } else if(o.return_status === 'aceptada'){
+          actionHtml = `
+            <span class="scan-history-meta">✓ El vendedor aceptó la devolución. Envíale el artículo de vuelta (habla por el chat para la dirección) — se te reembolsará en cuanto confirme que lo ha recibido.</span>
+            <button class="btn btn-secondary btn-sm" style="margin-top:6px;" onclick="escalateReturn(${o.id})">¿Ya se lo mandaste y no confirma? Pedir ayuda a soporte</button>`;
+        } else if(o.return_status === 'rechazada'){
+          actionHtml = `<button class="btn btn-secondary btn-sm" onclick="escalateReturn(${o.id})">El vendedor la rechazó — pedir ayuda a soporte</button>`;
+        } else if(o.return_status !== 'ninguna'){
+          actionHtml = `<span class="scan-history-meta">Estado de la devolución: ${escapeHtml(o.return_status)}</span>`;
+        }
+      } else {
+        if(o.return_status === 'solicitada'){
+          actionHtml = `
+            <div style="display:flex;gap:8px;">
+              <button class="btn btn-primary btn-sm" onclick="respondReturn(${o.id}, true)">Aceptar devolución</button>
+              <button class="btn btn-secondary btn-sm" onclick="respondReturn(${o.id}, false)">Rechazar</button>
+            </div>`;
+        } else if(o.return_status === 'aceptada'){
+          actionHtml = `<button class="btn btn-primary btn-sm" onclick="confirmReturnReceived(${o.id})">He recibido el artículo devuelto → reembolsar</button>`;
+        } else if(o.return_status !== 'ninguna'){
+          actionHtml = `<span class="scan-history-meta">Estado de la devolución: ${escapeHtml(o.return_status)}</span>`;
+        }
+      }
+
+      return `
+        <div class="scan-history-item" style="flex-direction:column;align-items:flex-start;gap:6px;">
+          <div class="scan-history-model">${escapeHtml(title)} — ${(o.amount_cents/100).toLocaleString('es-ES')} €${o.shipping_cents > 0 ? ' + ' + (o.shipping_cents/100).toLocaleString('es-ES') + '€ envío' : ''}</div>
+          <div class="scan-history-meta">${new Date(o.created_at).toLocaleDateString('es-ES')} · ${escapeHtml(o.status)}</div>
+          ${ordersCurrentTab === 'ventas' && o.status === 'pagado' ? `<div class="scan-history-meta">${o.transferred ? '✓ Dinero ya recibido' : 'Se te pagará el ' + new Date(new Date(o.created_at).getTime() + RETURN_WINDOW_DAYS*86400000).toLocaleDateString('es-ES') + ' (si no hay devolución)'}</div>` : ''}
+          ${o.return_reason ? `<div class="scan-history-meta">Motivo: ${escapeHtml(o.return_reason)}</div>` : ''}
+          ${actionHtml}
+        </div>`;
+    }).join('');
+  }
+
+  async function requestReturn(orderId){
+    const reason = prompt('¿Por qué quieres devolverlo? (llegó roto, no es como se describía, etc.)');
+    if(!reason || !reason.trim()) return;
+    const { error } = await sb.from('marketplace_orders').update({
+      return_status: 'solicitada',
+      return_reason: reason.trim(),
+      return_requested_at: new Date().toISOString()
+    }).eq('id', orderId);
+    if(error){ showToast('No se pudo solicitar la devolución', { check:false }); return; }
+    showToast('Devolución solicitada — a la espera de que el vendedor responda');
+    loadMyOrders();
+  }
+
+  async function escalateReturn(orderId){
+    if(!confirm('¿Quieres que soporte revise este caso? Solo hazlo si el artículo llegó roto o no era como se describía — nuestro equipo puede obligar al vendedor a aceptar la devolución si tienes razón.')) return;
+    const { error } = await sb.from('marketplace_orders').update({ return_status: 'escalada' }).eq('id', orderId);
+    if(error){ showToast('No se pudo escalar el caso', { check:false }); return; }
+    showToast('Caso enviado a soporte, lo revisaremos pronto');
+    loadMyOrders();
+  }
+
+  async function respondReturn(orderId, accept){
+    if(accept){
+      if(!confirm('¿Aceptar la devolución? Todavía NO se reembolsa nada — primero el comprador tiene que devolverte el artículo, y tú confirmar que lo has recibido.')) return;
+      const { error } = await sb.from('marketplace_orders').update({ return_status: 'aceptada' }).eq('id', orderId);
+      if(error){ showToast('No se pudo aceptar: ' + error.message, { check:false, duration:4500 }); return; }
+      showToast('Devolución aceptada — dile al comprador por el chat a dónde enviarlo');
+      loadMyOrders();
+    } else {
+      const { error } = await sb.from('marketplace_orders').update({ return_status: 'rechazada' }).eq('id', orderId);
+      if(error){ showToast('No se pudo rechazar', { check:false }); return; }
+      showToast('Devolución rechazada');
+      loadMyOrders();
+    }
+  }
+
+  async function confirmReturnReceived(orderId){
+    if(!confirm('¿Confirmas que ya has recibido de vuelta el artículo? Al confirmar, se reembolsará al comprador de inmediato.')) return;
+    await processOrderRefund(orderId);
+  }
+
+  async function processOrderRefund(orderId){
+    try{
+      const res = await fetch(SUPABASE_URL + '/functions/v1/process-marketplace-refund', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + currentSession.access_token,
+          'apikey': SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify({ orderId })
+      });
+      const data = await res.json().catch(() => null);
+      if(!res.ok || !data || !data.ok){
+        showToast((data && data.error) || 'No se pudo procesar el reembolso', { check:false, duration:4500 });
+        return;
+      }
+      showToast('Reembolso procesado');
+      loadMyOrders();
+    } catch(err){
+      showToast('Error de conexión al reembolsar', { check:false });
+    }
+  }
+
+  function closeListingChat(){
+    document.getElementById('listingChatOverlay').classList.remove('show');
+    if(chatPollInterval){ clearInterval(chatPollInterval); chatPollInterval = null; }
+  }
+
+  async function loadListingChatMessages(){
+    if(!chatOtherUserId || !chatListingId || !currentSession) return;
+    const myId = currentSession.user.id;
+    const { data, error } = await sb.from('marketplace_messages')
+      .select('*')
+      .eq('listing_id', chatListingId)
+      .or(`and(sender_id.eq.${myId},recipient_id.eq.${chatOtherUserId}),and(sender_id.eq.${chatOtherUserId},recipient_id.eq.${myId})`)
+      .order('created_at', { ascending:true });
+    if(error) return;
+    const wrap = document.getElementById('listingChatMessages');
+    if(!data || data.length === 0){
+      wrap.innerHTML = '<div class="comments-empty">Aún no hay mensajes. ¡Escribe el primero!</div>';
+      return;
+    }
+    wrap.innerHTML = data.map(m => {
+      const isOffer = m.offer_price_cents != null;
+      let offerBlock = '';
+      if(isOffer){
+        const offerLabel = '💰 Oferta: ' + (m.offer_price_cents/100).toLocaleString('es-ES') + ' €';
+        const statusLabel = { pendiente: 'Pendiente', aceptada: '✓ Aceptada', rechazada: '✗ Rechazada' }[m.offer_status] || '';
+        offerBlock = `<div class="offer-block"><b>${offerLabel}</b><span class="offer-status offer-${m.offer_status}">${statusLabel}</span>`;
+        if(m.offer_status === 'pendiente' && m.recipient_id === myId){
+          offerBlock += `
+            <div style="display:flex;gap:6px;margin-top:6px;">
+              <button class="btn btn-primary btn-sm" onclick="respondToOffer(${m.id}, true)">Aceptar</button>
+              <button class="btn btn-secondary btn-sm" onclick="respondToOffer(${m.id}, false)">Rechazar</button>
+            </div>`;
+        }
+        offerBlock += `</div>`;
+      }
+      return `
+      <div class="chat-msg ${m.sender_id === myId ? 'mine' : 'theirs'}">
+        ${m.content ? escapeHtml(m.content) : ''}
+        ${m.image_data ? `<img src="${escapeHtml(m.image_data)}" alt="">` : ''}
+        ${offerBlock}
+        <span class="chat-msg-time">${new Date(m.created_at).toLocaleString('es-ES', { hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit' })}</span>
+      </div>
+    `;
+    }).join('');
+    wrap.scrollTop = wrap.scrollHeight;
+  }
+
+  async function makeOffer(){
+    if(!chatListingId || !chatOtherUserId || !currentSession) return;
+    const amount = prompt('¿Cuánto quieres ofrecer (€)?');
+    if(!amount) return;
+    const cents = Math.round(parseFloat(amount) * 100);
+    if(isNaN(cents) || cents <= 0){ showToast('Escribe un importe válido', { check:false }); return; }
+
+    const { error } = await sb.from('marketplace_messages').insert({
+      listing_id: chatListingId,
+      sender_id: currentSession.user.id,
+      recipient_id: chatOtherUserId,
+      content: 'Te hago una oferta',
+      offer_price_cents: cents,
+      offer_status: 'pendiente'
+    });
+    if(error){ showToast('No se pudo enviar la oferta: ' + error.message, { check:false, duration:4500 }); return; }
+    loadListingChatMessages();
+  }
+
+  async function respondToOffer(messageId, accept){
+    const { data: msg, error: fetchError } = await sb.from('marketplace_messages').select('*').eq('id', messageId).single();
+    if(fetchError || !msg){ showToast('No se pudo cargar la oferta', { check:false }); return; }
+
+    const { error } = await sb.from('marketplace_messages').update({
+      offer_status: accept ? 'aceptada' : 'rechazada'
+    }).eq('id', messageId);
+    if(error){ showToast('No se pudo responder: ' + error.message, { check:false, duration:4500 }); return; }
+
+    if(accept){
+      // Guardamos el precio pactado en el propio artículo, para que al
+      // comprar esta persona en concreto, se le cobre lo acordado.
+      const { error: listingError } = await sb.from('marketplace_listings').update({
+        agreed_buyer_id: msg.sender_id,
+        agreed_price_cents: msg.offer_price_cents
+      }).eq('id', msg.listing_id);
+      if(listingError){ showToast('Oferta aceptada, pero no se pudo guardar el precio: ' + listingError.message, { check:false, duration:5000 }); }
+      else { showToast('¡Oferta aceptada! Esa persona ya puede comprar al precio pactado.'); }
+    } else {
+      showToast('Oferta rechazada');
+    }
+    loadListingChatMessages();
+  }
+
+  async function previewChatImage(){
+    const fileInput = document.getElementById('listingChatImageInput');
+    if(!fileInput.files || !fileInput.files[0]) return;
+    const validationError = validateImageFile(fileInput.files[0]);
+    if(validationError){ showToast(validationError, { check:false }); fileInput.value = ''; return; }
+    const reader = new FileReader();
+    const dataUrl = await new Promise((resolve) => {
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(fileInput.files[0]);
+    });
+    chatImageDataUrl = await resizeImageDataUrl(dataUrl, 700);
+    const preview = document.getElementById('chatImagePreview');
+    preview.innerHTML = `<img src="${chatImageDataUrl}" alt=""> <button class="icon-btn" onclick="clearChatImage()" style="vertical-align:middle;" aria-label="Quitar">✕</button>`;
+    preview.style.display = 'block';
+  }
+  function clearChatImage(){
+    chatImageDataUrl = null;
+    document.getElementById('listingChatImageInput').value = '';
+    document.getElementById('chatImagePreview').style.display = 'none';
+  }
+
+  async function sendListingMessage(){
+    const input = document.getElementById('listingChatInput');
+    const text = input.value.trim();
+    if(!text && !chatImageDataUrl) return;
+    if(!chatOtherUserId || !chatListingId || !currentSession) return;
+
+    const { error } = await sb.from('marketplace_messages').insert({
+      listing_id: chatListingId,
+      sender_id: currentSession.user.id,
+      recipient_id: chatOtherUserId,
+      content: text || null,
+      image_data: chatImageDataUrl
+    });
+    if(error){
+      showToast('No se pudo enviar el mensaje', { check:false });
+      return;
+    }
+    input.value = '';
+    clearChatImage();
+    loadListingChatMessages();
+  }
+
+  async function buyListing(){
+    if(!currentSession){ showToast('Necesitas iniciar sesión', { check:false }); return; }
+    if(!currentListingDetail) return;
+    try{
+      const res = await fetch(SUPABASE_URL + '/functions/v1/create-marketplace-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + currentSession.access_token,
+          'apikey': SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify({ listingId: currentListingDetail.id })
+      });
+      const data = await res.json().catch(() => null);
+      if(!res.ok || !data || !data.url){
+        showToast((data && data.error) || 'No se pudo iniciar el pago', { check:false, duration:4500 });
+        return;
+      }
+      window.location.href = data.url;
+    } catch(err){
+      showToast('Error de conexión al comprar', { check:false });
+    }
+  }
+
+  // Un vendedor tiene que activar los cobros una vez, antes de poder vender
+  // (esto le lleva a Stripe para verificar su identidad y cuenta bancaria).
+  async function connectSellerAccount(){
+    if(!currentSession){ showToast('Necesitas iniciar sesión', { check:false }); return; }
+    try{
+      const res = await fetch(SUPABASE_URL + '/functions/v1/connect-seller-account', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + currentSession.access_token,
+          'apikey': SUPABASE_ANON_KEY
+        }
+      });
+      const data = await res.json().catch(() => null);
+      if(!res.ok || !data || !data.url){
+        showToast((data && data.error) || 'No se pudo iniciar la activación', { check:false, duration:4500 });
+        return;
+      }
+      window.location.href = data.url;
+    } catch(err){
+      showToast('Error de conexión', { check:false });
+    }
+  }
+
+
   async function openFollowList(userId, kind){
     if(!userId || !backendReady) return;
     document.getElementById('followListTitle').textContent = kind === 'followers' ? 'Seguidores' : 'Siguiendo';
@@ -2987,28 +3867,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function searchUsers(query){
     clearTimeout(userSearchTimeout);
     const results = document.getElementById('userSearchResults');
-    const clean = query.trim().replace(/^@/, '');
+    // Quitamos caracteres que Supabase interpreta como parte de la
+    // sintaxis del filtro (coma, paréntesis, punto) — si no, alguien
+    // podría "inyectar" condiciones extra en la búsqueda escribiéndolos
+    // a propósito en el buscador.
+    const clean = query.trim().replace(/^@/, '').replace(/[,().]/g, '');
     if(!clean){ results.style.display = 'none'; results.innerHTML = ''; return; }
     userSearchTimeout = setTimeout(async () => {
       if(!backendReady) return;
-      const { data, error } = await sb.from('profiles')
-        .select('id, name, handle, avatar_url')
-        .ilike('handle', '%' + clean + '%')
-        .limit(8);
+      const [usersRes, postsRes] = await Promise.all([
+        sb.from('profiles').select('id, name, handle, avatar_url').or(`handle.ilike.%${clean}%,name.ilike.%${clean}%`).limit(6),
+        sb.from('posts').select('id, caption, image_data, profiles(handle, avatar_url)').ilike('caption', '%' + clean + '%').order('created_at', { ascending:false }).limit(6)
+      ]);
+      const users = usersRes.data || [];
+      const posts = postsRes.data || [];
+
       results.style.display = 'block';
-      if(error || !data || data.length === 0){
-        results.innerHTML = '<div class="comments-empty">No se encontró a nadie con ese usuario.</div>';
+      if(users.length === 0 && posts.length === 0){
+        results.innerHTML = '<div class="comments-empty">No se encontró nada con esa búsqueda.</div>';
         return;
       }
-      results.innerHTML = data.map(p => `
-        <div class="user-search-result" onclick="document.getElementById('userSearchInput').value=''; document.getElementById('userSearchResults').style.display='none'; openPublicProfile('${escapeHtml(p.handle).replace(/'/g,"\\'")}')">
-          <img src="${escapeHtml(p.avatar_url || DEFAULT_AVATAR)}" alt="">
-          <div>
-            <div class="scan-history-model">${escapeHtml(p.name || p.handle)}</div>
-            <div class="scan-history-meta">@${escapeHtml(p.handle)}</div>
+
+      let html = '';
+      if(users.length > 0){
+        html += '<div class="field-label" style="margin-top:0;">Personas</div>';
+        html += users.map(p => `
+          <div class="user-search-result" onclick="document.getElementById('userSearchInput').value=''; document.getElementById('userSearchResults').style.display='none'; openPublicProfile('${escapeHtml(p.handle).replace(/'/g,"\\'")}')">
+            <img src="${escapeHtml(p.avatar_url || DEFAULT_AVATAR)}" alt="">
+            <div>
+              <div class="scan-history-model">${escapeHtml(p.name || p.handle)}</div>
+              <div class="scan-history-meta">@${escapeHtml(p.handle)}</div>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
+      if(posts.length > 0){
+        html += '<div class="field-label">Publicaciones</div>';
+        html += posts.map(post => `
+          <div class="user-search-result" onclick="document.getElementById('userSearchInput').value=''; document.getElementById('userSearchResults').style.display='none'; openPublicProfile('${escapeHtml((post.profiles && post.profiles.handle) || '').replace(/'/g,"\\'")}')">
+            <img src="${escapeHtml(post.image_data || DEFAULT_AVATAR)}" alt="" style="border-radius:8px;">
+            <div>
+              <div class="scan-history-model">@${escapeHtml((post.profiles && post.profiles.handle) || '?')}</div>
+              <div class="scan-history-meta">${escapeHtml((post.caption || '').slice(0, 60))}${(post.caption || '').length > 60 ? '…' : ''}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+      results.innerHTML = html;
     }, 350);
   }
 
@@ -3130,13 +4035,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   async function startCheckout(plan){
-    if(!backendReady){
-      alert('Los pagos necesitan el backend configurado todavía. Sigue la guía de Stripe para activarlos.');
-      return;
-    }
     if(!isAuthenticated || !currentSession){
       pendingActionAfterAuth = 'checkout:' + plan;
       openAuthModal('register', 'home', 'Necesitas una cuenta para suscribirte a un plan. Regístrate o inicia sesión primero.');
+      return;
+    }
+
+    // Dentro de la app (iOS/Android), la compra tiene que pasar por
+    // Apple/Google, no por Stripe — usamos RevenueCat para eso.
+    if(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()){
+      return startNativePurchase(plan);
+    }
+
+    if(!backendReady){
+      alert('Los pagos necesitan el backend configurado todavía. Sigue la guía de Stripe para activarlos.');
       return;
     }
     const confirmed = confirm(
@@ -3170,6 +4082,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     } catch(err){
       console.error('[Knowcar AI] Error de red al iniciar el pago:', err);
       alert('No se pudo conectar con el servidor de pagos.');
+    }
+  }
+
+  // ---------- Compra dentro de la app (Apple/Google, vía RevenueCat) ----------
+  const REVENUECAT_ENTITLEMENTS = { premium: 'premium', pro: 'pro' };
+
+  async function initRevenueCatIfNative(){
+    if(!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform())) return;
+    if(!window.Purchases || !currentSession) return;
+    try{
+      await window.Purchases.configure({
+        apiKey: window.Capacitor.getPlatform() === 'ios' ? 'TU_CLAVE_PUBLICA_IOS_REVENUECAT' : 'TU_CLAVE_PUBLICA_ANDROID_REVENUECAT',
+        appUserID: currentSession.user.id // el mismo ID que en Supabase, para que el webhook sepa a quién activar
+      });
+    } catch(err){ console.error('[Knowcar AI] No se pudo iniciar RevenueCat:', err); }
+  }
+
+  async function startNativePurchase(plan){
+    if(!window.Purchases){
+      alert('La tienda de compras no está disponible en este momento.');
+      return;
+    }
+    try{
+      const offerings = await window.Purchases.getOfferings();
+      const pkg = offerings?.current?.availablePackages?.find(p =>
+        (p.identifier || '').toLowerCase().includes(plan)
+      );
+      if(!pkg){
+        alert('No se encontró el plan ' + PLAN_LABELS[plan] + ' en la tienda. Inténtalo más tarde.');
+        return;
+      }
+      const { customerInfo } = await window.Purchases.purchasePackage({ aPackage: pkg });
+      const entitlement = REVENUECAT_ENTITLEMENTS[plan];
+      if(customerInfo?.entitlements?.active?.[entitlement]){
+        showToast('¡Suscripción activada!');
+        await loadProfile(currentSession.user.id);
+      }
+    } catch(err){
+      if(err?.userCancelled) return; // la persona simplemente canceló, no es un error
+      console.error('[Knowcar AI] Error en la compra nativa:', err);
+      alert('No se pudo completar la compra.');
     }
   }
 
@@ -3385,6 +4338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     loadAdminStats();
     loadAdminRedemptions();
     loadAdminFeedback();
+    loadAdminReturns();
   }
   function closeAdminPanel(){ document.getElementById('adminOverlay').classList.remove('show'); }
 
@@ -3437,6 +4391,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     `).join('');
   }
+
+  async function loadAdminReturns(){
+    const list = document.getElementById('adminReturnsList');
+    if(!list || !backendReady) return;
+    const { data, error } = await sb.from('marketplace_orders')
+      .select('*, marketplace_listings(title), buyer:profiles!marketplace_orders_buyer_id_fkey(handle), seller:profiles!marketplace_orders_seller_id_fkey(handle)')
+      .eq('return_status', 'escalada')
+      .order('created_at', { ascending:false });
+    if(error){
+      list.innerHTML = '<div class="comments-empty">No se pudieron cargar (' + escapeHtml(error.message) + ').</div>';
+      return;
+    }
+    if(!data || data.length === 0){
+      list.innerHTML = '<div class="comments-empty">No hay ningún caso escalado ahora mismo.</div>';
+      return;
+    }
+    list.innerHTML = data.map(o => `
+      <div class="scan-history-item" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div class="scan-history-model">${escapeHtml((o.marketplace_listings && o.marketplace_listings.title) || 'Artículo')} — ${(o.amount_cents/100).toLocaleString('es-ES')} €</div>
+        <div class="scan-history-meta">Comprador: @${escapeHtml((o.buyer && o.buyer.handle) || '?')} · Vendedor: @${escapeHtml((o.seller && o.seller.handle) || '?')}</div>
+        <div class="scan-history-meta">Motivo: ${escapeHtml(o.return_reason || '—')}</div>
+        <button class="btn btn-primary btn-sm" style="background:var(--danger);" onclick="adminForceRefund(${o.id})">Forzar reembolso</button>
+      </div>
+    `).join('');
+  }
+
+  async function adminForceRefund(orderId){
+    if(!confirm('¿Forzar el reembolso de este pedido? El vendedor recibirá menos, y no se puede deshacer.')) return;
+    await processOrderRefund(orderId);
+    loadAdminReturns();
+  }
+
 
   async function markRedemptionShipped(id){
     await sb.from('reward_redemptions').update({ status: 'enviado' }).eq('id', id);
@@ -3754,6 +4740,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function handleAiAttach(evt){
     const file = evt.target.files[0];
     if(!file) return;
+    const validationError = validateImageFile(file);
+    if(validationError){ showToast(validationError, { check:false }); evt.target.value = ''; return; }
     const reader = new FileReader();
     reader.onload = () => {
       aiAttachedImage = reader.result;
@@ -4002,16 +4990,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return;
     }
     const myId = currentSession && currentSession.user ? currentSession.user.id : null;
-    list.innerHTML = comments.map(c => `
+    const ONE_HOUR = 60 * 60 * 1000;
+    list.innerHTML = comments.map(c => {
+      // Comparación como texto, por si acaso, para que un tipo de dato
+      // distinto (string vs uuid) nunca haga que el botón desaparezca.
+      const isOwn = !!(myId && c.user_id && String(c.user_id) === String(myId));
+      const canEdit = isOwn && (Date.now() - new Date(c.created_at).getTime()) < ONE_HOUR;
+      return `
       <div class="comment-item" data-comment-id="${c.id}">
         <b>${escapeHtml((c.profiles && c.profiles.handle) || 'usuario')}</b>
         <span class="comment-text">${escapeHtml(c.content)}</span>
-        ${myId && c.user_id === myId ? `
-          <span class="comment-own-actions">
-            <button onclick="startEditComment(${c.id})" aria-label="Editar">✎</button>
-            <button onclick="deleteComment(${c.id})" aria-label="Borrar">🗑</button>
-          </span>` : ''}
-      </div>`).join('');
+        ${isOwn ? `
+          <div class="comment-own-actions">
+            ${canEdit ? `<button onclick="startEditComment(${c.id})">Editar</button>` : ''}
+            <button onclick="deleteComment(${c.id})">Eliminar</button>
+          </div>` : ''}
+      </div>`;
+    }).join('');
     list.scrollTop = list.scrollHeight;
   }
 
@@ -4025,7 +5020,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     input.focus();
     input.addEventListener('keydown', (e) => { if(e.key === 'Enter') saveEditComment(commentId); });
     const actions = item.querySelector('.comment-own-actions');
-    if(actions) actions.innerHTML = `<button onclick="saveEditComment(${commentId})" aria-label="Guardar">✓</button>`;
+    if(actions) actions.innerHTML = `<button onclick="saveEditComment(${commentId})">Guardar</button>`;
   }
 
   async function saveEditComment(commentId){
@@ -4034,7 +5029,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const newText = input.value.trim();
     if(!newText) return;
     const { error } = await sb.from('comments').update({ content: newText }).eq('id', commentId);
-    if(error){ showToast('No se pudo guardar el cambio', { check:false }); return; }
+    if(error){ showToast('No se pudo guardar el cambio (¿ya pasó más de 1 hora?)', { check:false, duration:4000 }); return; }
     openComments(currentCommentsPostId);
   }
 
@@ -4538,6 +5533,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function handlePointImageUpload(evt){
     const file = evt.target.files[0];
     if(!file) return;
+    const validationError = validateImageFile(file);
+    if(validationError){ showToast(validationError, { check:false }); evt.target.value = ''; return; }
     const reader = new FileReader();
     reader.onload = () => {
       pointImageSrc = reader.result;
@@ -4727,6 +5724,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function handleComposeUpload(evt){
     const file = evt.target.files[0];
     if(!file) return;
+    const validationError = validateImageFile(file);
+    if(validationError){ showToast(validationError, { check:false }); evt.target.value = ''; return; }
     const reader = new FileReader();
     reader.onload = () => {
       composeImageSrc = reader.result;
@@ -4865,7 +5864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   function renderPost({ id, handle, image, caption, likeCount, commentCount, likedByMe, savedByMe, prepend, fromBackend, own, createdAt, avatarUrl }){
-    const feed = document.querySelector('#view-social .page-pad');
+    const feed = document.querySelector('#socialFeedTab');
     const emptyState = document.getElementById('socialEmptyState');
     if(emptyState) emptyState.style.display = 'none';
 
@@ -5115,6 +6114,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     clearScanError();
   }
 
+  // Valida un archivo ANTES de procesarlo — comprueba el tipo real (no el
+  // atributo "accept" del input, que cualquiera puede saltarse) y el
+  // tamaño máximo, para evitar archivos maliciosos o demasiado grandes.
+  // Devuelve null si es válido, o un texto de error si no lo es.
+  function validateImageFile(file){
+    const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    const MAX_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB, de sobra para una foto de móvil
+    if(!file) return 'No se seleccionó ningún archivo.';
+    if(!ALLOWED_TYPES.includes(file.type)) return 'Solo se admiten imágenes (JPG, PNG, WEBP o GIF).';
+    if(file.size > MAX_SIZE_BYTES) return 'La imagen pesa demasiado (máximo 10 MB).';
+    return null;
+  }
+
   // Reduce cualquier imagen a un máximo de ~500px de lado más largo, para
   // que analizarla con la IA cueste lo mínimo posible.
   function resizeImageDataUrl(dataUrl, maxSide){
@@ -5138,6 +6150,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function handleScanUpload(evt){
     const file = evt.target.files[0];
     if(!file) return;
+    const validationError = validateImageFile(file);
+    if(validationError){ showToast(validationError, { check:false }); evt.target.value = ''; return; }
     const reader = new FileReader();
     reader.onload = async () => {
       clearScanError();
@@ -5365,8 +6379,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Puntuación de precio (0=mal precio, 100=buen precio), en escala
     // continua — así "se pasa un poco del rango" no cae directo a rojo,
     // se mueve la aguja gradualmente, no en 3 saltos bruscos.
-    const lowBound = min * 0.9;
-    const highBound = max * 1.2;
+    const lowBound = min * 0.97;
+    const highBound = max * 1.08;
     let priceScore = 100 - ((price - lowBound) / (highBound - lowBound)) * 100;
     priceScore = Math.max(0, Math.min(100, priceScore));
 
@@ -5381,7 +6395,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(!isNaN(km) && km >= 0 && lastScanResult.km_anuales_tipicos && lastScanResult.anio_referencia){
       const edad = Math.max(1, new Date().getFullYear() - lastScanResult.anio_referencia);
       const kmEsperado = edad * lastScanResult.km_anuales_tipicos;
-      const kmLow = kmEsperado * 0.7, kmHigh = kmEsperado * 1.5;
+      const kmLow = kmEsperado * 0.85, kmHigh = kmEsperado * 1.15;
       kmScore = 100 - ((km - kmLow) / (kmHigh - kmLow)) * 100;
       kmScore = Math.max(0, Math.min(100, kmScore));
       const porKm = (price / km);
