@@ -1,4 +1,4 @@
-package com.knowcarai.app;
+package com.knowcarai;
 
 import com.getcapacitor.BridgeActivity;
 
