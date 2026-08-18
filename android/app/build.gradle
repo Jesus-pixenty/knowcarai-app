@@ -9,7 +9,7 @@ android {
 <<<<<<< HEAD
         versionCode 2
 =======
-        versionCode 8
+        versionCode 9
 >>>>>>> 5489d1870ce62794a43883a6380e103fb5185bc0
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
