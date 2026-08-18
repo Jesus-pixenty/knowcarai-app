@@ -1044,6 +1044,26 @@
   .auth-switch button{background:none;border:none;color:var(--accent-2);font-weight:700;font-size:13px;padding:0 4px;}
   .auth-error{font-size:12.5px;color:var(--danger);margin-top:8px;display:none;}
   .auth-error.show{display:block;}
+
+  /* ---------- Rendimiento en la app nativa (Android/iOS) ----------
+     backdrop-filter (el desenfoque de fondo) va muy mal en el WebView de
+     Android — genera "tirones" notables al moverse o abrir modales. En la
+     web normal el navegador lo gestiona bien, así que solo lo apagamos
+     aquí, dentro de la app — ver initNativePerformanceFixes() en el JS. */
+  body.native-app .eyebrow,
+  body.native-app .btn-secondary,
+  body.native-app .topbar,
+  body.native-app .map-chip,
+  body.native-app .map-add-mode-btn,
+  body.native-app .map-locate-btn,
+  body.native-app .holo-card,
+  body.native-app .modal-overlay{
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+  /* Compensamos un poco la opacidad para que no se vea demasiado transparente sin el desenfoque */
+  body.native-app .modal-overlay{background:rgba(5,5,6,0.9);}
+  body.native-app .topbar{background:rgba(9,9,9,0.94);}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1058,8 +1078,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-568QGQ5S');</script>
 <!-- End Google Tag Manager -->
+<!-- Umami: estadísticas de visitas, privadas, sin cookies de rastreo -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="3319cc51-4fc4-485b-818d-44e638a2f2ed"></script>
 </head>
 <body>
+<script>
+  // Detecta lo antes posible si estamos dentro de la app nativa (Capacitor),
+  // para desactivar el desenfoque de fondo (backdrop-filter) que va muy mal
+  // en el WebView de Android — lo hacemos aquí, antes de que se pinte nada,
+  // para que no haya ni un parpadeo del efecto antes de quitarlo.
+  if(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()){
+    document.body.classList.add('native-app');
+  }
+</script>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-568QGQ5S"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1601,6 +1632,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p class="scan-disclaimer" id="scanDisclaimer">Esta es una demo visual: los datos que verás son de ejemplo, no un reconocimiento real todavía.</p>
               <button class="btn btn-primary" onclick="startScannerCamera()">Activar cámara</button>
               <button class="btn btn-secondary" onclick="document.getElementById('scanUploadInput').click()">Subir una foto</button>
+              <button class="btn btn-secondary" id="watchAdBtn" style="display:none;" onclick="watchAdForBonusScans()">🎬 Ver anuncio para +5 escaneos hoy</button>
               <input type="file" accept="image/*" id="scanUploadInput" style="display:none;" onchange="handleScanUpload(event)">
               <p class="scan-warning" id="scanInsecureWarning" style="display:none;">Este navegador solo permite abrir la cámara desde una web con https:// o desde localhost. Si abriste el archivo haciendo doble clic, activa la cámara no funcionará — pero puedes subir una foto sin problema.</p>
               <p class="scan-error" id="scanError" style="display:none;"></p>
@@ -2137,9 +2169,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <p><b>7. Disponibilidad.</b> Knowcar AI puede tener interrupciones puntuales por mantenimiento o fallos técnicos. No garantizamos disponibilidad ininterrumpida.</p>
 
-        <p><b>8. Cambios.</b> Podemos actualizar estos términos; si hay cambios importantes, te avisaremos dentro de la app.</p>
+        <p><b>8. Derechos de autor.</b> No puedes subir ni compartir en Knowcar AI (publicaciones, comentarios, mapa, Mercadillo, chat) contenido que no sea tuyo o sobre el que no tengas los derechos necesarios, incluidas fotos, textos, marcas o logotipos de terceros. Si crees que algún contenido de la app infringe tus derechos de autor, escríbenos a <a href="mailto:soporte@knowcarai.com" style="color:var(--accent-2);">soporte@knowcarai.com</a> con los detalles, y lo revisaremos y, si procede, lo retiraremos.</p>
 
-        <p><b>9. Contacto.</b> Dudas sobre estos términos: <a href="mailto:soporte@knowcarai.com" style="color:var(--accent-2);">soporte@knowcarai.com</a>.</p>
+        <p><b>9. Resolución de disputas.</b> Si tienes algún problema con el servicio, contacta primero con nosotros en <a href="mailto:soporte@knowcarai.com" style="color:var(--accent-2);">soporte@knowcarai.com</a> — intentaremos resolverlo de forma directa. Como consumidor en España/UE, también tienes derecho a acudir a la <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" style="color:var(--accent-2);">plataforma europea de resolución de litigios en línea</a>, o a las juntas arbitrales de consumo de tu localidad, como alternativa gratuita a los tribunales.</p>
+
+        <p><b>10. Cambios.</b> Podemos actualizar estos términos; si hay cambios importantes, te avisaremos dentro de la app.</p>
+
+        <p><b>11. Contacto.</b> Dudas sobre estos términos: <a href="mailto:soporte@knowcarai.com" style="color:var(--accent-2);">soporte@knowcarai.com</a>.</p>
       </div>
     </div>
   </div>
@@ -3023,6 +3059,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderStreakDisplay();
       loadOwnFollowCounts(userId);
       initRevenueCatIfNative();
+      initAdMobIfNative();
+
+      const watchAdBtn = document.getElementById('watchAdBtn');
+      if(watchAdBtn){
+        const isNative = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+        watchAdBtn.style.display = (isNative && currentUserPlan === 'free') ? 'block' : 'none';
+      }
 
       // Solo una vez por sesión (no cada vez que se recarga el perfil).
       if(!streakUpdatedThisSession){
@@ -3139,6 +3182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // ---------- Mercadillo ----------
   let marketplaceListings = [];
   let marketplaceFilter = 'todo';
+  let lastMarketplaceLoadTime = null;
   const CONDITION_LABELS = { nuevo: 'Nuevo', casi_nuevo: 'Casi nuevo', usado: 'Usado', muy_usado: 'Muy usado' };
   let selectedListingCategory = 'pieza';
   let currentListingDetail = null;
@@ -3178,7 +3222,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
       fab.style.display = 'flex';
       fab.onclick = openCreateListing;
-      loadMarketplaceListings();
+      // Solo recarga de verdad si pasaron más de 30s desde la última vez
+      // (o es la primera vez) — evita golpear la base de datos cada vez
+      // que solo cambias de pestaña de un lado a otro sin motivo.
+      if(!lastMarketplaceLoadTime || (Date.now() - lastMarketplaceLoadTime) > 30000){
+        loadMarketplaceListings();
+      }
     } else {
       feedTab.style.display = 'block';
       marketTab.style.display = 'none';
@@ -3200,6 +3249,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return;
     }
     marketplaceListings = data || [];
+    lastMarketplaceLoadTime = Date.now();
     renderMarketplaceGrid();
   }
 
@@ -3298,6 +3348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return;
     }
     showToast('¡Publicado!');
+    lastMarketplaceLoadTime = null; // fuerza a recargar de verdad la próxima vez, no usa la caché de 30s
     closeCreateListing();
   }
 
@@ -4097,6 +4148,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         appUserID: currentSession.user.id // el mismo ID que en Supabase, para que el webhook sepa a quién activar
       });
     } catch(err){ console.error('[Knowcar AI] No se pudo iniciar RevenueCat:', err); }
+  }
+
+  // ---------- Anuncios (AdMob, solo dentro de la app nativa) ----------
+  // Sustituye estos por tus IDs reales de AdMob cuando los tengas. Mientras
+  // tanto, usa los de PRUEBA de Google (los de abajo) — mostrar anuncios
+  // reales antes de publicar de verdad puede penalizar tu cuenta de AdMob.
+  const ADMOB_IDS = {
+    android: {
+      banner: 'ca-app-pub-3940256099942544/6300978111',    // ID de PRUEBA de Google
+      rewarded: 'ca-app-pub-3940256099942544/5224354917',  // ID de PRUEBA de Google
+    },
+    ios: {
+      banner: 'ca-app-pub-3940256099942544/2934735716',
+      rewarded: 'ca-app-pub-3940256099942544/1712485313',
+    }
+  };
+  let admobReady = false;
+
+  async function initAdMobIfNative(){
+    if(!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform())) return;
+    if(!window.AdMob) return;
+    try{
+      await window.AdMob.initialize();
+      admobReady = true;
+      showBannerAds();
+    } catch(err){ console.error('[Knowcar AI] No se pudo iniciar AdMob:', err); }
+  }
+
+  async function showBannerAds(){
+    if(!admobReady || !window.AdMob) return;
+    const platform = window.Capacitor.getPlatform() === 'ios' ? 'ios' : 'android';
+    try{
+      // Un solo banner "flotante" abajo del todo (más fiable en WebView que
+      // intentar encajarlo dentro de cada hueco reservado) — ocultamos los
+      // huecos de AdSense mientras tanto, para no duplicar espacio vacío.
+      document.querySelectorAll('.ad-slot').forEach(el => { el.style.display = 'none'; });
+      await window.AdMob.showBanner({
+        adId: ADMOB_IDS[platform].banner,
+        adSize: 'ADAPTIVE_BANNER',
+        position: 'BOTTOM_CENTER',
+        margin: 0
+      });
+    } catch(err){ console.error('[Knowcar AI] No se pudo mostrar el banner:', err); }
+  }
+
+  // Botón "Ver anuncio para 5 escaneos gratis" — solo aparece en plan
+  // gratis, dentro de la app nativa.
+  async function watchAdForBonusScans(){
+    if(!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform())){
+      showToast('Esto solo está disponible dentro de la app', { check:false });
+      return;
+    }
+    if(!currentSession){ showToast('Necesitas iniciar sesión', { check:false }); return; }
+    if(!window.AdMob){ showToast('Los anuncios no están disponibles ahora mismo', { check:false }); return; }
+
+    const platform = window.Capacitor.getPlatform() === 'ios' ? 'ios' : 'android';
+    try{
+      await window.AdMob.prepareRewardVideoAd({ adId: ADMOB_IDS[platform].rewarded });
+      const result = await window.AdMob.showRewardVideoAd();
+      // Solo si el usuario vio el anuncio de verdad hasta el final le damos
+      // el bonus — y ese bonus se concede en el SERVIDOR, no aquí, para que
+      // nadie pueda saltárselo manipulando el navegador.
+      if(!result) return; // canceló antes de terminar
+
+      const res = await fetch(SUPABASE_URL + '/functions/v1/grant-ad-bonus', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + currentSession.access_token,
+          'apikey': SUPABASE_ANON_KEY
+        }
+      });
+      const data = await res.json().catch(() => null);
+      if(!res.ok || !data || !data.ok){
+        showToast((data && data.error) || 'No se pudo aplicar la recompensa', { check:false, duration:4500 });
+        return;
+      }
+      showToast('¡+5 escaneos añadidos por hoy!');
+    } catch(err){
+      console.error('[Knowcar AI] Error con el anuncio recompensado:', err);
+      showToast('No se pudo cargar el anuncio, inténtalo en un momento', { check:false });
+    }
   }
 
   async function startNativePurchase(plan){
